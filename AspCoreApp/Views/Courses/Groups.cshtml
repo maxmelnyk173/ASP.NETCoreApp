@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AspCoreApp.Models.Group>
+
+@{
+    ViewData["Title"] = "SelectGroups";
+}
+
+<h1>Groups</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Students" asp-route-id="@item.GroupId">Show Students</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</br>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
